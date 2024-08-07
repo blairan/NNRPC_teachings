@@ -4,25 +4,42 @@
     <meta charset="UTF-8">
     <title>南開諾布仁波切教言</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f23f3f; /* 設定背景顏色 */
-        }
+        body { font-family: Arial, sans-serif; background-color: #f0f0f0; }
         h1 { text-align: center; }
         .category { margin: 20px; }
-        a { text-decoration: none; color: blue; }
+        a { text-decoration: none; color: blue; cursor: pointer; }
+        .article-list { display: none; margin: 20px; }
     </style>
+    <script>
+        function showArticles() {
+            document.getElementById('article-list').style.display = 'block';
+        }
+
+        function openArticle(article) {
+            window.location.href = article + '.html'; // 導向文章內容頁面
+        }
+    </script>
 </head>
 <body>
     <h1>南開諾布仁波切教言</h1>
     <div class="category">
-        <h2><a href="article1.html">教言開示錄</a></h2>
+        <h2><a href="javascript:void(0);" onclick="showArticles()">教言開示錄</a></h2>
         <p>集結南開諾布仁波切於各禪修營所作開示</p>
     </div>
+    
+    <div id="article-list" class="article-list">
+        <h2>文章列表</h2>
+        <ul>
+            <li><a href="javascript:void(0);" onclick="openArticle('article1')">文章標題 1</a></li>
+            <li><a href="javascript:void(0);" onclick="openArticle('article2')">文章標題 2</a></li>
+            <!-- 可以繼續添加更多文章標題 -->
+        </ul>
+    </div>
+
     <div class="category">
         <h2><a href="article2.html">未訂</a></h2>
         <p>簡介或描述-未訂</p>
     </div>
-    <!-- 可以繼續添加更多類別 -->
 </body>
 </html>
+
