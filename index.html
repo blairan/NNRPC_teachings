@@ -11,12 +11,25 @@
         .article-list { display: none; margin: 20px; }
     </style>
     <script>
-        function showArticles() {
-            document.getElementById('article-list').style.display = 'block';
-        }
+        const articles = [
+            { title: "文章標題 1", file: "articles/article1.html" },
+            { title: "文章標題 2", file: "articles/article2.html" },
+            // 可以在這裡繼續添加更多文章
+        ];
 
-        function openArticle(article) {
-            window.location.href = article + '.html'; // 導向文章內容頁面
+        function showArticles() {
+            const articleListElement = document.getElementById('article-list');
+            articleListElement.innerHTML = ''; // 清空列表
+            articles.forEach(article => {
+                const listItem = document.createElement('li');
+                const link = document.createElement('a');
+                link.textContent = article.title; // 設定文章標題
+                link.href = article.file; // 設定連結
+                link.target = "_blank"; // 在新頁面打開
+                listItem.appendChild(link);
+                articleListElement.appendChild(listItem);
+            });
+            articleListElement.style.display = 'block'; // 顯示文章列表
         }
     </script>
 </head>
@@ -30,9 +43,7 @@
     <div id="article-list" class="article-list">
         <h2>文章列表</h2>
         <ul>
-            <li><a href="javascript:void(0);" onclick="openArticle('article1')">文章標題 1</a></li>
-            <li><a href="javascript:void(0);" onclick="openArticle('article2')">文章標題 2</a></li>
-            <!-- 可以繼續添加更多文章標題 -->
+            <!-- 文章列表將由 JavaScript 自動生成 -->
         </ul>
     </div>
 
@@ -42,4 +53,3 @@
     </div>
 </body>
 </html>
-
