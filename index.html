@@ -7,46 +7,16 @@
         body { font-family: Arial, sans-serif; background-color: #f0f0f0; }
         h1 { text-align: center; }
         .category { margin: 20px; }
-        a { text-decoration: none; color: blue; cursor: pointer; }
-        .article-list { display: none; margin: 20px; }
+        a { text-decoration: none; color: blue; }
     </style>
-    <script>
-        const articles = [
-            { title: "文章標題 1", file: "articles/article1.html" },
-            { title: "文章標題 2", file: "articles/article2.html" },
-            // 可以在這裡繼續添加更多文章
-        ];
-
-        function showArticles() {
-            const articleListElement = document.getElementById('article-list');
-            articleListElement.innerHTML = ''; // 清空列表
-            articles.forEach(article => {
-                const listItem = document.createElement('li');
-                const link = document.createElement('a');
-                link.textContent = article.title; // 設定文章標題
-                link.href = article.file; // 設定連結
-                link.target = "_blank"; // 在新頁面打開
-                listItem.appendChild(link);
-                articleListElement.appendChild(listItem);
-            });
-            articleListElement.style.display = 'block'; // 顯示文章列表
-        }
-    </script>
 </head>
 <body>
     <h1>南開諾布仁波切教言</h1>
     <div class="category">
-        <h2><a href="javascript:void(0);" onclick="showArticles()">教言開示錄</a></h2>
+        <h2><a href="articles.html">教言開示錄</a></h2> <!-- 更新為指向 articles.html -->
         <p>集結南開諾布仁波切於各禪修營所作開示</p>
     </div>
     
-    <div id="article-list" class="article-list">
-        <h2>文章列表</h2>
-        <ul>
-            <!-- 文章列表將由 JavaScript 自動生成 -->
-        </ul>
-    </div>
-
     <div class="category">
         <h2><a href="article2.html">未訂</a></h2>
         <p>簡介或描述-未訂</p>
