@@ -43,8 +43,8 @@
     <div class="category">
         <h2><a href="articles1_page.html">南開諾布仁波切教言開示錄</a></h2>
         <p>集結南開諾布仁波切於各禪修營所作開示</p>
-        <p class="view-count" id="view-count-1">觀看人數：<span id="view-count-value-1">1234</span></p>
-        <p class="current-date" id="current-date-1">當日公元日期：<span id="date-value-1"></span></p>
+        <p class="view-count" id="view-count-1">觀看人數：<span id="觀看人數">1234</span></p>
+        <p class="current-date" id="current-date-1">當日公元日期：<span id="日期"></span></p>
     </div>
 
     <h1>龍薩大圓滿法訊</h1>
@@ -102,8 +102,8 @@
         function updateDate() {
             var today = new Date();
             var dateString = today.getFullYear() + '年' + (today.getMonth() + 1) + '月' + today.getDate() + '日';
-            document.getElementById('date-value-1').textContent = dateString;
-            document.getElementById('date-value-2').textContent = dateString;
+            document.getElementById('觀看人數').textContent = dateString;
+            document.getElementById('日期').textContent = dateString;
         }
 
         // 初始調用
