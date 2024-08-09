@@ -78,37 +78,39 @@
           databaseURL: "https://nnrpc-github-default-rtdb.firebaseio.com/"
         };
       
-        // Initialize Firebase
+        // 初始化 Firebase
         const app = initializeApp(firebaseConfig);
         const database = getDatabase(app);
 
         // 實時更新觀看人數
         function updateViewCount() {
-            const dbRef = ref(database, '觀看人數');
-            get(dbRef).then((snapshot) => {
-                if (snapshot.exists()) {
-                    document.getElementById('view-count-value-1').textContent = snapshot.val();
-                    document.getElementById('view-count-value-2').textContent = snapshot.val();
+            const viewCountRef = ref(database, '觀看人數');
+            onValue(viewCountRef, (snapshot) => {
+                const viewCount = snapshot.val();
+                if (viewCount !== null) {
+                    document.getElementById('view-count-value-1').textContent = viewCount;
+                    document.getElementById('view-count-value-2').textContent = viewCount;
                 } else {
                     console.log("No data available");
                 }
-            }).catch((error) => {
-                console.error(error);
+            }, {
+                onlyOnce: false // 持續監聽
             });
         }
 
-        // 獲取當前日期並更新到頁面上
+        // 實時更新日期
         function updateDate() {
-            const dbRef = ref(database, '日期');
-            get(dbRef).then((snapshot) => {
-                if (snapshot.exists()) {
-                    document.getElementById('date-value-1').textContent = snapshot.val();
-                    document.getElementById('date-value-2').textContent = snapshot.val();
+            const dateRef = ref(database, '日期');
+            onValue(dateRef, (snapshot) => {
+                const date = snapshot.val();
+                if (date !== null) {
+                    document.getElementById('date-value-1').textContent = date;
+                    document.getElementById('date-value-2').textContent = date;
                 } else {
                     console.log("No data available");
                 }
-            }).catch((error) => {
-                console.error(error);
+            }, {
+                onlyOnce: false // 持續監聽
             });
         }
 
@@ -118,7 +120,6 @@
 
         // 定期更新，每隔1分鐘更新一次
         setInterval(updateDate, 60000);
-        setInterval(updateViewCount, 10000);
     </script>
 </body>
 </html>
