@@ -49,8 +49,6 @@
 </head>
 <body>
     <div class="header-info">
-        <p>觀看人數：<span id="view-count">000000</span></p>
-        <p>當日公元日期：<span id="current-date">20--/--/--</span></p>
     </div>
     <h1>南開諾布仁波切教言</h1>
     <div class="category">
@@ -70,63 +68,5 @@
         <p>收錄利美大德祖師開示文集</p>
     </div> -->
 
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
-        import { getDatabase, ref, get, onValue } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-database.js";
-      
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-          apiKey: "AIzaSyBYie4syx1CKSZB2AhlSIxDI-93BeDpStM",
-          authDomain: "nnrpc-github.firebaseapp.com",
-          projectId: "nnrpc-github",
-          storageBucket: "nnrpc-github.appspot.com",
-          messagingSenderId: "634480425846",
-          appId: "1:634480425846:web:391ab2f5d659be940dd857",
-          measurementId: "G-8812XW1KZC",
-          databaseURL: "https://nnrpc-github-default-rtdb.firebaseio.com/"
-        };
-        
-        // 初始化 Firebase
-        const app = initializeApp(firebaseConfig);
-        const database = getDatabase(app);
-
-        // 實時更新觀看人數
-        function updateViewCount() {
-            const viewCountRef = ref(database, '觀看人數');
-            onValue(viewCountRef, (snapshot) => {
-                const viewCount = snapshot.val();
-                if (viewCount !== null) {
-                    document.getElementById('view-count').textContent = viewCount;
-                } else {
-                    console.log("No data available");
-                }
-            }, {
-                onlyOnce: false // 持續監聽
-            });
-        }
-
-        // 實時更新日期
-        function updateDate() {
-            const dateRef = ref(database, '日期');
-            onValue(dateRef, (snapshot) => {
-                const date = snapshot.val();
-                if (date !== null) {
-                    document.getElementById('current-date').textContent = date;
-                } else {
-                    console.log("No data available");
-                }
-            }, {
-                onlyOnce: false // 持續監聽
-            });
-        }
-
-        // 初始調用
-        updateDate();
-        updateViewCount();
-
-        // 定期更新，每隔1分鐘更新一次
-        setInterval(updateDate, 60000);
-    </script>
 </body>
 </html>
