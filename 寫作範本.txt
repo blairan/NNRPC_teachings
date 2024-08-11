@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>南開諾布仁波切教言集</title>
+    <style>
+        body { 
+            font-family: 'Times New Roman', Times, serif; 
+            background-color: #f14444; 
+            text-align: center; 
+        }
+        h1 { 
+            text-align: center; 
+        }
+        ul { 
+            list-style: none; 
+            padding: 0; 
+            text-align: left; 
+            display: inline-block; 
+            font-size: 18px; /* 調大字體 */
+        }
+        li { 
+            margin: 10px 0; 
+        }
+        a { 
+            text-decoration: none; 
+            color: rgb(41, 41, 65); 
+        }
+        .content { 
+            display: inline-block; 
+            text-align: left; 
+            width: 80%; 
+            margin: 0 auto; 
+        }
+    </style>
+</head>
+<body>
+    
+    <img src="pic/MJ_20240809_030246.png" alt="圖檔" style="width:500px;height:auto;margin-bottom:20px;"> <!-- 圖檔路徑可自行修改 -->
+    <h1>2020 校對版：2011/09/17-18 秋吉林巴伏藏：大圓滿三部</h1>
+    
+    
+    <div class="content">
+             <ul>
+                 <li>
+  </ul>
+    </div>
+    
+    <p><a href="../index.html"><b>返回主頁</b></a></p> <!-- 返回主頁的鏈接 -->
+</body>
+</html>
+請幫我以上面的格式加入內文,內文在下方
